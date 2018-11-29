@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<menu>
+  <item>
+    <path>civicrm/groups/multi-event-registration</path>
+    <title>Multi Event Registration</title>
+    <page_callback>CRM_Groups_Form_MultiEventRegistration</page_callback>
+    <access_arguments>access CiviCRM</access_arguments>
+    <path_arguments>action=add,reset=1</path_arguments>
+  </item>
+</menu>

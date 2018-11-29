@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<extension key="com.agiliway.groups" type="module">
+  <file>groups</file>
+  <name>Groups Registration and Group Assignment</name>
+  <description>Allows using groups of constituents/for registering to an event and assigning activities</description>
+  <license>AGPL-3.0</license>
+  <maintainer>
+    <author>Agiliway</author>
+    <email>civicrm@agiliway.com</email>
+  </maintainer>
+    <urls>
+      <url desc="Main Extension Page">https://agiliway.com</url>
+      <url desc="Documentation">https://github.com/agiliway/com.agiliway.groups</url>
+      <url desc="Support">https://agiliway.com</url>
+      <url desc="Licensing">http://www.gnu.org/licenses/agpl-3.0.html</url>
+    </urls>
+  <releaseDate>2018-09-27</releaseDate>
+  <version>1.0</version>
+  <develStage>alpha</develStage>
+  <compatibility>
+    <ver>5.5</ver>
+  </compatibility>
+  <comments>Extension is working on real projects</comments>
+  <civix>
+    <namespace>CRM/Groups</namespace>
+  </civix>
+</extension>
