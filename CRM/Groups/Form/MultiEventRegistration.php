@@ -48,9 +48,6 @@ class CRM_Groups_Form_MultiEventRegistration extends CRM_Event_Form_Participant 
     $this->assign('insertAfterSelector', '.crm-participant-form-contact-id:first');
     $this->assign('targetInputSelector', '#contact_id');
 
-    CRM_Core_Region::instance('page-body')->add([
-      'template' => CRM_Groups_ExtensionUtil::path() . '/templates/CRM/Groups/Form/Field/Group.tpl'
-    ]);
   }
 
   public function postProcess() {

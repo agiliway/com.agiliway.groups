@@ -79,7 +79,11 @@ class CRM_Groups_API_CustomGroupsContacts {
       $groupContact = civicrm_api3('GroupContact', 'get', [
         'sequential' => 1,
         'group_id' => $groupId,
-        'options' => ['limit' => 0]
+        'options' => ['limit' => 0],
+        'api.Contact.getSingle' => [
+          'id' => '$value.contact_id',
+          'return' => ['display_name', 'email'],
+        ]
       ]);
     } catch (CiviCRM_API3_Exception $e) {
       return;
@@ -87,31 +91,11 @@ class CRM_Groups_API_CustomGroupsContacts {
 
     foreach ($groupContact['values'] as $item) {
       $this->contactDataList[$item['contact_id']] = [
-        'display_name' => $this->getContactDisplayName($item['contact_id']),
-        'contact_id' => $item['contact_id']
+        'contact_id' => $item['contact_id'],
+        'display_name' => $item['api.Contact.getSingle']['display_name'],
+        'email' => $item['api.Contact.getSingle']['email']
       ];
     }
-
-  }
-
-  /**
-   * Gets contact display name
-   *
-   * @param $contactId
-   *
-   * @return string
-   */
-  private function getContactDisplayName($contactId) {
-    try {
-      $result = civicrm_api3('Contact', 'getsingle', [
-        'return' => ["display_name"],
-        'id' => $contactId,
-      ]);
-    } catch (CiviCRM_API3_Exception $e) {
-      return '';
-    }
-
-    return isset($result['display_name']) ? $result['display_name'] : '';
   }
 
 }
